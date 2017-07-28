@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::middleware(['first', 'auth'])->group(function () {
+  //  Route::middleware(['first', 'admin'])->group(function () {
+        Route::get('adm', function(){
+            return view('admin.index');
+    //    });
+    //
+            Route::resource('adm/laborante','LaboranteController');
+});
+
+
+
+
+
